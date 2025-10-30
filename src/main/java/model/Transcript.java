@@ -1,3 +1,5 @@
+package model;
+
 public class Transcript {
     private String course;
     private double grade;
@@ -35,7 +37,7 @@ public class Transcript {
 
     @Override
     public String toString() {
-        return "Transcript{" +
+        return "model.Transcript{" +
                 "course='" + course + '\'' +
                 " grade=" + grade + '\'' +
                 " highschoolYear=" + highSchoolYear +

@@ -1,14 +1,21 @@
+package main;
+
+import model.Student;
+import model.Transcript;
+import utils.StudentsFileWriter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     static Scanner scanner;
-    static List<Student> students;
-    static StudentsFileWritter studentsFileWritter = new StudentsFileWritter();
+    static List<Student> students = new ArrayList<>();
+    static StudentsFileWriter studentsFileWriter = new StudentsFileWriter();
 
     public static void main(String[] args) {
         printInfo();
+        scanner.close();
     }
 
 
@@ -35,7 +42,7 @@ public class Main {
                 System.out.println("Invalid choise. Please try again.");
                 printInfo();
         }
-        scanner.close();
+
     }
 
 
@@ -65,12 +72,11 @@ public class Main {
         student.setPhoneNumber(scanner.nextInt());
         student.setTranscript(studentTranscript());
 
-        students = new ArrayList<>();
         students.add(student);
 
-        StudentsFileWritter.writeToFile(students);
+        StudentsFileWriter.writeToFile(students);
 
-        System.out.println("Student \"" + student.getID() + " " +
+        System.out.println("model.Student \"" + student.getID() + " " +
                 student.getFirstName() + " " +
                 student.getLastName() + "\" added successfully.");
         System.out.println("The student transcript is set automatically for the moment.");
@@ -79,7 +85,7 @@ public class Main {
     };
 
     public static void viewStudentsInfo(){
-        StudentsFileWritter.readFile();
+        StudentsFileWriter.readFile();
         printInfo();
     }
 

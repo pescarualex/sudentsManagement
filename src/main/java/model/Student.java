@@ -1,3 +1,5 @@
+package model;
+
 import org.apache.commons.validator.routines.EmailValidator;
 
 import java.util.List;
@@ -103,7 +105,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "model.Student{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +

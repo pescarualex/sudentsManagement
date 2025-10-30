@@ -1,4 +1,6 @@
-import com.opencsv.CSVWriter;
+package utils;
+
+import model.Student;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -8,14 +10,14 @@ import java.util.List;
 
 
 
-public class StudentsFileWritter {
+public class StudentsFileWriter {
 
 
     private static final String fileName = "studentsIndex.csv";
     static final Path path = Path.of(fileName);
     static FileWriter fileWriter;
 
-    public StudentsFileWritter(){
+    public StudentsFileWriter(){
         writeHeader();
     }
 
@@ -35,7 +37,7 @@ public class StudentsFileWritter {
                 fileHeaders.add("Email");
                 fileHeaders.add("Address");
                 fileHeaders.add("Phone Number");
-                fileHeaders.add("Transcript");
+                fileHeaders.add("model.Transcript");
 
                 /// write tabel header
                 fileWriter.write(Arrays.toString(fileHeaders.toArray()) + "\n");
