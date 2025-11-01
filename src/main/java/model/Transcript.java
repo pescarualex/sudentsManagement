@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public class Transcript {
     private String course;
     private double grade;
@@ -11,6 +13,22 @@ public class Transcript {
         this.course = course;
         this.grade = grade;
         this.highSchoolYear = highSchoolYear;
+    }
+
+    public double getAverageGrade(Student student){
+        double average = 0;
+        List<List<Transcript>> transcript = student.getTranscript();
+        for(List<Transcript> transcriptList : transcript){
+            System.out.println(":::::::::Entered in first loop");
+            System.out.println(":::::::::" + transcriptList.toString());
+            for(Transcript courseTranscript : transcriptList){
+                System.out.println(":::::::::Entered in second loop");
+                System.out.println(":::::::::" + courseTranscript.toString());
+                average += courseTranscript.getGrade();
+                average /= transcriptList.size();
+            }
+        }
+        return average;
     }
 
     public String getCourse(){
@@ -37,10 +55,10 @@ public class Transcript {
 
     @Override
     public String toString() {
-        return "model.Transcript{" +
+        return "Transcript{" +
                 "course='" + course + '\'' +
-                " grade=" + grade + '\'' +
-                " highschoolYear=" + highSchoolYear +
+                "grade=" + grade + '\'' +
+                "highschoolYear=" + highSchoolYear +
                 '}';
     }
 }
